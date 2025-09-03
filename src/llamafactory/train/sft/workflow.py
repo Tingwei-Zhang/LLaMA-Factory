@@ -67,7 +67,7 @@ def run_sft(
 
     # Metric utils
     metric_module = {}
-    if training_args.predict_with_generate:
+    if training_args.predict_with_generate and not finetuning_args.disable_similarity_metrics:
         metric_module["compute_metrics"] = ComputeSimilarity(tokenizer=tokenizer)
     elif finetuning_args.compute_accuracy:
         metric_module["compute_metrics"] = ComputeAccuracy()
