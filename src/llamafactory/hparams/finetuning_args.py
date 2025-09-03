@@ -501,6 +501,10 @@ class FinetuningArguments(
         default=False,
         metadata={"help": "Whether or not to disable the shuffling of the training set."},
     )
+    disable_similarity_metrics: bool = field(
+        default=True,
+        metadata={"help": "Whether to disable BLEU/ROUGE similarity metrics during prediction/evaluation in SFT."},
+    )
     early_stopping_steps: Optional[int] = field(
         default=None,
         metadata={"help": "Number of steps to stop training if the `metric_for_best_model` does not improve."},
